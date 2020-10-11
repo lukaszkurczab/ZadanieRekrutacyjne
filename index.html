@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="shortcut icon" href="./public/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="./Css/style.css">
+  <title>Zadanie rekrutacyjne</title>
+</head>
+
+<body>
+  <div class="wrapper">
+    <section class="section">
+      <form class="form">
+        <span class="label" id="comapnyNameLabel" style="visibility: hidden;">Nazwa firmy</span>
+        <input type="text" placeholder="Nazwa firmy" class="input" id="companyNameInput">
+        <span class="errorText" id="companyNameError">Błąd</span>
+      </form>
+
+      <div class="selectBox">
+        <div class="optionsContainer">
+          <div class="searchBox">
+            <input type="text" placeholder="Szukaj"><img src="./public/images/search.png" class="searchIcon">
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" name="employee" id="1">
+            <label for="1"><img src="./public/images/AdamNowak.jpg" alt="Adam Nowak profile picture"
+                class="profilePicture" copyright="CC BY-NC-SA mentatdgt"><span class="name">Adam Nowak</span></label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" name="employee" id="2">
+            <label for="2"><img src="./public/images/MichalPotoczek.jpg" alt="Michał Potoczek profile picture"
+                class="profilePicture" copyright="CC BY-NC-SA Nathan Cowley"><span class="name">Michał Potoczek</span>
+            </label>
+          </div>
+          <div class="option">
+            <input type="radio" class="radio" name="employee" id="3">
+            <label for="3"><img src="./public/images/AntoniWorek.jpg" alt="Anotni Worek profile picture"
+                class="profilePicture" copyright="CC BY-NC-SA Chloe Kala"><span class="name">Anotni Worek</span></label>
+          </div>
+        </div>
+
+        <div class="selected">
+          <span class="name" id="employeeInput">Pracownik</span>
+          <span class="label" style="visibility: hidden;">Pracownik</span>
+        </div>
+      </div>
+      <span class="errorText" id="employeeError" style="visibility: hidden;">Błąd</span>
+    </section>
+
+    <section class="section">
+      <h2>Zadania</h2>
+      <form class="form">
+        <span class="label" id="taskNameLabel" style="visibility: hidden;">Nazwa zadania</span>
+        <input type="text" placeholder="Nazwa zadania" class="input" id="taskNameInput">
+        <span class="errorText" id="taskNameError">Błąd</span>
+        <span class="label" id="cashLabel" style="visibility: hidden;">Kwota w PLN</span>
+        <input type="number" placeholder="Kwota w PLN" class="input" id="cashInput">
+        <span class="errorText" id="cashError">Błąd</span>
+      </form>
+
+      <div class="sectionDesc">
+        <h3>1 euro = <span id="exchange"></span></h3>
+        <button class="adButton" onclick="addTask()">Dodaj</button>
+      </div>
+    </section>
+
+
+    <table class="table">
+      <thead class="tableHead">
+        <tr class="tableRow">
+          <th class="tableCell">Nazwa Zadania<img src="./public/images/sortUp.png" alt="Sortuj rosnąco" class="sortUp"
+              onclick="sortColumn('taskName',true)"><img src="./public/images/sortDown.png" alt="Sortuj malejąco"
+              class="sortDown" onclick="sortColumn('taskName',false)"></th>
+          <th class="tableCell">Kwota w PLN<img src="./public/images/sortUp.png" alt="Sortuj rosnąco" class="sortUp"
+              onclick="sortColumn('PLN',true)"><img src="./public/images/sortDown.png" alt="Sortuj malejąco"
+              class="sortDown" onclick="sortColumn('PLN',false)"></th>
+          <th class="tableCell">Kwota w EUR<img src="./public/images/sortUp.png" alt="Sortuj rosnąco" class="sortUp"
+              onclick="sortColumn('EUR',true)"><img src="./public/images/sortDown.png" alt="Sortuj malejąco"
+              class="sortDown" onclick="sortColumn('EUR',false)"></th>
+          <th class="tableCell">Opcje</th>
+        </tr>
+      </thead>
+      <tbody class="tableBody" id="tableBody">
+      </tbody>
+    </table>
+    <h3 class="sum">Suma: <span id="sum"></span></h3>
+  </div>
+
+  <script src="./src/selectBox.js"></script>
+  <script src="./src/tasksBox.js"></script>
+</body>
+
+</html>

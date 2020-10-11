@@ -1,0 +1,265 @@
+@import './variables'
+
+*
+  padding: 0
+  margin: 0
+  box-sizing: border-box
+  font-size: 14px
+
+body
+  font-family: 'Source Sans Pro', sans-serif
+
+  .wrapper
+    max-width: 700px
+    margin: auto
+    .section
+      padding: 20px 0
+      width: 276px
+
+      h2
+        margin-bottom: 13px
+        margin-left: $indentation
+
+      .errorText
+        color: #FF4003
+        font-size: 12px
+        display: block
+        margin: 2px 1px 5px
+        visibility: hidden
+
+        /*------------- INPUT STYLES ---------------*/
+      .form
+        .input
+          width: 100%
+          height: 30px
+          padding: 6px $indentation
+          border: 1px solid #E1E1E1
+          border-radius: 3px
+          line-height: 18px
+          font-family: 'Source Sans Pro', sans-serif
+          &::-webkit-input-placeholder
+            font-family: 'Source Sans Pro', sans-serif
+          &:-ms-input-placeholder
+            font-family: 'Source Sans Pro', sans-serif
+          &:-moz-placeholder
+            font-family: 'Source Sans Pro', sans-serif
+          &::-moz-placeholder
+            font-family: 'Source Sans Pro', sans-serif
+          &:-webkit-autofill,
+            -webkit-box-shadow: 0 0 0 1000px #fff inset
+          &:focus
+            outline-color: #00447C
+          &::-webkit-outer-spin-button,
+          &::-webkit-inner-spin-button
+            -webkit-appearance: none
+            margin: 0
+          &[type=number]
+            -moz-appearance: textfield
+          &.error
+            border-color: #FF4003
+
+      .label
+        position: relative
+        top: 7px
+        left: 8px
+        width: auto
+        background-color: #fff
+        font-size: 12px
+        padding-right: 4px
+        color: #00447C
+      .selectBox
+        position: relative
+        display: flex
+        flex-direction: column
+        width: 100%
+        height: 32px
+        .selected
+          height: 30px
+          padding: 6px $indentation
+          margin-bottom: 8px
+          width: 100%
+          color: #828282
+          border: 1px solid #E1E1E1
+          border-radius: 3px
+          position: relative
+          order: 0
+          .label
+            top: -18px
+            left: -2px
+            z-index: 25
+          .name
+            position: absolute
+            z-index: 1
+          &::after
+            content: ""
+            background: url("../public/images/arrow-down.png")
+            background-size: contain
+            background-repeat: no-repeat
+            position: absolute
+            height: 7px
+            width: 13px
+            right: 15px
+            top: 11px
+            transition: all .8s
+          &.error
+            border-color: #FF4003
+
+        .optionsContainer
+          display: none
+          width: 100%
+          background-color: #fff
+          padding-bottom: 12px
+          box-shadow: 0px 3px 3px rgba(0, 0, 0, 0.04)
+          border: 1px solid #D6E2F5
+          border-radius: 3px
+          order: 1
+          z-index: 1
+          .option
+            padding: 0 8px
+            position: relative
+            .profilePicture
+              height: 30px
+              width: 30px
+              margin: 5px 13px 5px 7px
+              border-radius: 50%
+            .radio
+              display: none
+            label
+              display: flex
+              flex-wrap: wrap
+              align-items: center
+              cursor: pointer
+            &:hover
+              background: #F4F7FB
+            &.chosen
+              font-weight: 600
+              color: #00447C
+              &::after
+                content: ""
+                background: url("../public/images/check.png")
+                background-size: contain
+                background-repeat: no-repeat
+                position: absolute
+                height: 10px
+                width: 14px
+                right: 15px
+                top: 11px
+          &.active
+            display: block
+            & + .selected
+              border-color: #00447C
+              box-shadow: 0px 0px 0px .5px #00315a
+              &::after
+                transform: rotateX(180deg)
+
+        .searchBox
+          display: flex
+          align-items: center
+          padding: 7px 8px
+          width: 100%
+          border-bottom: 1px solid #D6E2F5
+          input
+            width: 100%
+            padding: 6px 12px
+            background: #F2F4F8
+            border: none
+            border-bottom-left-radius: 3px
+            border-top-left-radius: 3px
+            font-family: 'Source Sans Pro', sans-serif
+            &:focus
+              outline: none
+            &::-webkit-input-placeholder
+              font-family: 'Source Sans Pro', sans-serif
+            &:-ms-input-placeholder
+              font-family: 'Source Sans Pro', sans-serif
+            &:-moz-placeholder
+              font-family: 'Source Sans Pro', sans-serif
+            &::-moz-placeholder
+              font-family: 'Source Sans Pro', sans-serif
+          .searchIcon
+            height: 29px
+            width: 29px
+            padding: 8px
+            border-bottom-right-radius: 3px
+            border-top-right-radius: 3px
+            background-color: #F2F4F8
+        .option, .selected
+          cursor: pointer
+
+      .sectionDesc
+        display: flex
+        justify-content: space-between
+        align-items: center
+        padding: 15px 0
+        h3
+          margin-left: $indentation
+          font-weight: 400
+          color: #4A4A4A
+        .adButton
+          width: 92px
+          background: #00447C
+          color: white
+          border-radius: 3px
+          font-weight: 600
+          line-height: 18px
+          padding: 6px 24px
+          border: none
+          outline: 0
+          cursor: pointer
+          &:hover
+            background: #015090
+          &:active
+            background: #00315a
+
+      &:nth-child(1)
+        border-bottom: 1px solid #A2A2A2
+      &:nth-child(2)
+        padding-bottom: 20px
+
+        /*------------- TABLE STYLES ---------------*/
+    .table
+      width: 700px
+      border-collapse: collapse
+      border-radius: 3px
+      border-style: hidden
+      box-shadow: 0 0 0 1px #D6E2F5
+      color: #4F4F4F
+      .tableHead
+        .tableRow
+          text-align: left
+          height: 60px
+        .sortUp,
+        .sortDown
+          height: 4px
+          width: 8px
+          margin-left: 11px
+          position: absolute
+          cursor: pointer
+        .sortDown
+          transform: translateY(10px)
+      .tableBody
+        .tableRow
+          height: 50px
+          border: 1px solid #D6E2F5
+      .tableCell
+        padding: 0px 19px
+        position: relative
+      .delete
+        display: flex
+        align-items: center
+        background-color: white
+        border: none
+        outline: 0
+        cursor: pointer
+        .trashImg
+          width: 13px
+          height: 15px
+          margin-right: 12px
+
+    .sum
+      margin-top: 25px
+      margin-left: 19px
+      font-size: 18px
+      color: #4F4F4F
+      span
+        font-size: 18px
